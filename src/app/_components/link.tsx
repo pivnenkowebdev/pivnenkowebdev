@@ -19,7 +19,7 @@ export default function CustomLink({
     ...rest
 }: CustomLinkProps) {
     return (
-        <Link className={`px-3 py-2.5 bg-yellow-100 border-2 border-yellow-200 block mb-13.5 text-center font-semibold text-md max-w-3xs ${inter.className} ${className}`} href={href} {...rest}>
+        <Link className={`px-3 py-2.5 bg-yellow-100 border-2 border-yellow-200 block text-center font-semibold text-md max-w-3xs ${inter.className} ${className}`} href={href} {...rest}>
         {children}
         </Link>
     );
