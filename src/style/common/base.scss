@@ -1,5 +1,53 @@
 @use "./vars.scss" as *;
 
+@font-face {
+    font-family: 'Inter';
+    src: url('/public/fonts/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-stretch: 75% 125%;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TikTokSans';
+    src: url('/public/fonts/TikTokSans-VariableFont_opsz,slnt,wdth,wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-stretch: 75% 100%;
+    font-style: normal;
+}
+
 body {
-    
+    background-color: $color-gray-100;
+    font-family: "TikTokSans";
+}
+
+.container {
+    max-width: 1920px;
+    padding: 0 40px;
+    margin: 0 auto;
+
+    @media (max-width: 1440px) {
+        padding: 0 20px;
+    }
+}
+
+*, *>* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ul, ol, li {
+    list-style: none;
+}
+
+button {
+    background-color: transparent;
+    background: transparent;
+    border: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
 }
