@@ -8,20 +8,26 @@ const burger = headerElement.querySelector("#burger");
 
 const isMobile = () => window.matchMedia("(max-width: 1250px)").matches;
 
-tl.from("[data-anchor]", {
+tl.fromTo(menu, 
+    { autoAlpha: 0 },
+    { autoAlpha: 1, duration: 0.2, ease: "power1.out" }
+)
+.from("[data-anchor]", {
     duration: 0.3,
     y: 200,
     opacity: 0,
     stagger: 0.05,
     ease: "power2.out"
-});
+}, "<");
 
 if (!isMobile()) {
     gsap.set("[data-anchor]", { clearProps: "all" });
+    gsap.set(menu, { clearProps: "all" });
 }
 
 const closeMenuWithAnimation = () => {
     burger.classList.remove("open");
+
     tl.reverse();
 
     tl.eventCallback("onReverseComplete", () => {
@@ -35,6 +41,7 @@ const forceCloseMenu = () => {
     menu.classList.remove("open");
     tl.pause(0);
     gsap.set("[data-anchor]", { clearProps: "all" });
+    gsap.set(menu, { clearProps: "all" });
 };
 
 const toggleMenu = (e) => {
