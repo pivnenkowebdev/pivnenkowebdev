@@ -27,6 +27,7 @@
     "vite": "^7.0.4"
   },
   "dependencies": {
+    "gsap": "^3.13.0",
     "normalize.css": "^8.0.1"
   }
 }
