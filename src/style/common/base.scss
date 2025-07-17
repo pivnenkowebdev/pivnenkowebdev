@@ -20,6 +20,7 @@ body {
     background-color: $white;
     font-family: "TikTokSans";
     height: 4000px;
+    color: $black;
 }
 
 .container {
@@ -27,9 +28,13 @@ body {
     padding: 0 40px;
     margin: 0 auto;
 
-    @media (max-width: 1440px) {
+    @media (max-width: 768px) {
         padding: 0 20px;
     }
+}
+
+section {
+    overflow: hidden;
 }
 
 main {

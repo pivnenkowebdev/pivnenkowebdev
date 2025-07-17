@@ -1,4 +1,17 @@
+@use "../common/vars.scss" as *;
+
 .welcome {
     &__content {
+        padding: 90px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 auto;
+        gap: 80px;
+
+        @media (max-width: 1250px) {
+            flex-direction: column;
+            padding: 50px 0;
+        }
     }
 }

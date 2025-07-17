@@ -1,6 +1,38 @@
+@use "../common/vars.scss" as *;
+
 .main-title {
+    font-size: 64px;
 }
+
 .main-subtitle {
+    font-size: 36px;
     &__marker {
+        color: $red;
+    }
+}
+
+@media (max-width: 1250px) {
+    .main-title {
+        font-size: 48px;
+    }
+
+    .main-subtitle {
+        font-size: 28px;
+        &__marker {
+            color: $red;
+        }
+    }
+}
+
+@media (max-width: 525px) {
+    .main-title {
+        font-size: 36px;
+    }
+
+    .main-subtitle {
+        font-size: 18px;
+        &__marker {
+            color: $red;
+        }
     }
 }
