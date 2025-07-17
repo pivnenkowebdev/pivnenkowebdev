@@ -6,9 +6,9 @@
     left: 0;
     z-index: 10;
     width: 100%;
-    background-color: $dark-blue;
+    background-color: $blue;
     padding: 25px 0;
-    transition: padding .3s, background-color .3s, backdrop-filter;
+    transition: padding .3s, background-color .3s, backdrop-filter .3s, background .3s;
 
     &__content {
         display: flex;
@@ -18,7 +18,7 @@
 
     &.scrolled {
         padding: 10px 0;
-        background-color: #ffffff00;
+        background: $blueTransparent;
         backdrop-filter: blur(5px);
     }
 }
@@ -35,7 +35,7 @@
 .menu {
     &__list {
         display: flex;
-        gap: 40px;
+        gap: 50px;
 
         @media (max-width: 1250px) {
             flex-direction: column;
@@ -73,49 +73,7 @@
     cursor: pointer;
     color: $white;
 
-    &__mask {
-        position: relative;
-        height: 20px;
-        overflow: hidden;
-    }
-
-    &__container {
-        transition: transform 0.4s ease;
-    }
-
-    &__title {
-        display: block;
-        font-size: 20px;
-        line-height: 20px;
-        transition: transform 0.4s ease;
-
-        @media (max-width:1250px) {
-            font-weight: 500;
-        }
-    }
-
-    &__title--first {
-        transform-origin: right center;
-    }
-
-    &__title--second {
-        color: $orange;
-        transform-origin: left center;
-        transform: rotate(20deg);
-    }
-
     @media (hover:hover) {
-        &:hover &__container {
-            transform: translateY(-20px);
-        }
-    
-        &:hover &__title--first {
-            transform: rotate(20deg);
-        }
-    
-        &:hover &__title--second {
-            transform: rotate(0);
-        }
     
         &:hover {
             &::after,
@@ -129,7 +87,7 @@
         &::before {
             content: ''; 
             position: absolute;
-            top: calc(100% + 5px);
+            bottom: -2px;
             width: 0;
             right: 0;
             height: 3px;
@@ -144,14 +102,5 @@
             transition: width .2s cubic-bezier(0.29, 0.18, 0.26, 0.83);
             background: $orange;
         }
-    }
-}
-
-.courses-wrapper {
-    .courses-list {
-
-    }
-    .courses-list__item {
-
     }
 }

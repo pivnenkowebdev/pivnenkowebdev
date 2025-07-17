@@ -1,1 +1,13 @@
+// base
+@use 'normalize.css';
+@use '../style/common/base.scss';
+
+// sections
 @use '../style/sections/header.scss';
+@use '../style/sections/welcome.scss';
+
+// blocs
+@use '../style/components/burger.scss';
+@use '../style/components/hero.scss';
+@use '../style/components/lists-of-advantages.scss';
+@use '../style/components/titles.scss';
