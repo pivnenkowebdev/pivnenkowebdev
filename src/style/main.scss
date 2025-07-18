@@ -5,6 +5,7 @@
 // sections
 @use '../style/sections/header.scss';
 @use '../style/sections/welcome.scss';
+@use '../style/sections/about-me.scss';
 
 // blocs
 @use '../style/components/burger.scss';
@@ -12,3 +13,4 @@
 @use '../style/components/lists-of-advantages.scss';
 @use '../style/components/titles.scss';
 @use '../style/components/ava.scss';
+@use '../style/components/lead-link.scss';

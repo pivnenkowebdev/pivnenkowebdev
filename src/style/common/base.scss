@@ -19,7 +19,6 @@
 body {
     background-color: $white;
     font-family: "TikTokSans";
-    height: 4000px;
     color: $black;
 }
 
@@ -33,12 +32,18 @@ body {
     }
 }
 
-section {
-    overflow: hidden;
+main {
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: 1250px) {
+        padding-top: 150px;
+    }
 }
 
-main {
-    padding-top: 105px;
+section {
+    overflow: hidden;
 }
 
 *, *>* {
