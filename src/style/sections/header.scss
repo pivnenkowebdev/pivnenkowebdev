@@ -2,8 +2,12 @@
 
 .header {
     width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
     background-color: $blue;
-    padding: 10px 0;
+    padding: 20px 0;
     transition: padding .3s, background-color .3s, backdrop-filter .3s, background .3s;
 
     &__content {
@@ -14,6 +18,12 @@
 
     .container {
         min-height: auto;
+    }
+
+    &.scrolled {
+        padding: 10px 0;
+        background-color: $blueTransparent;
+        backdrop-filter: blur(5px);
     }
 }
 
