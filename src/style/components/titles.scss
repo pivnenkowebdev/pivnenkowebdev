@@ -2,10 +2,12 @@
 
 .main-title {
     font-size: 64px;
+    margin-bottom: 30px;
 }
 
 .main-subtitle {
     font-size: 36px;
+    margin-bottom: 20px;
     &__marker {
         color: $red;
     }
@@ -13,15 +15,18 @@
 
 .section-title {
     font-size: 56px;
+    margin-bottom: 30px;
 }
 
 @media (max-width: 1250px) {
     .main-title {
         font-size: 48px;
+        margin-bottom: 20px;
     }
 
     .main-subtitle {
         font-size: 28px;
+        margin-bottom: 16px;
         &__marker {
             color: $red;
         }
@@ -31,10 +36,12 @@
 @media (max-width: 525px) {
     .main-title {
         font-size: 36px;
+        margin-bottom: 14px;
     }
 
     .main-subtitle {
         font-size: 18px;
+        margin-bottom: 16px;
         &__marker {
             color: $red;
         }
@@ -45,5 +52,4 @@
     .main-title {
         font-size: 32px;
     }
-
 }
