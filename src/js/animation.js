@@ -22,7 +22,7 @@ tlAboutSection
 const tlGarancySection = gsap.timeline({
     scrollTrigger: {
         trigger: "#garancySection",
-        start: 'top 60%',
+        start: 'top 70%',
         end: '60% 70%',
         scrub: 2,
         // markers: true
@@ -44,7 +44,7 @@ gsap.from("[data-garancy-card]", {
         y: "100%",
         opacity: 0,
         stagger: 0.6,
-        scrub: 0.5
+        scrub: 1
     })
 
 gsap.from("#rockIcon", {

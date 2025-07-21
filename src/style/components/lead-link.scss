@@ -66,5 +66,27 @@
         &:hover {
             background-color: $redTransparent;
         }
+
+        &--light:hover {
+            background-color: $white;
+        }
     }
 }
+
+// .lead-link--light {
+//         background-color: $white;
+//         color: $red;
+//         align-self: flex-start;
+
+//         &::before {
+//             content: '';
+//             border-top: 3px solid $white;
+//             border-right: 3px solid $white;
+//         }
+
+//         &:after {
+//             content: '';
+//             border-bottom: 3px solid $white;
+//             border-left: 3px solid $white;
+//         }
+//     }

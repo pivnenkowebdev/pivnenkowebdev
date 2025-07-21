@@ -16,6 +16,10 @@
 .section-title {
     font-size: 56px;
     margin-bottom: 30px;
+
+    @media (max-width: 525px) {
+        font-size: 36px;
+    }
 }
 
 @media (max-width: 1250px) {
