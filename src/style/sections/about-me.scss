@@ -5,7 +5,7 @@
     color: $white;
     z-index: 2;
     
-    .about-me__content {
+    &__content {
         height: 100%;
         min-height: 100%;
         padding: 40px 0;

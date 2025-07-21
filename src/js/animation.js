@@ -19,6 +19,34 @@ tlAboutSection
     .from("#aboutMeSubtitle", { x: '200%' }, ">")
     .from("#listAbout", { x: '200%' }, ">");
 
+const tlGarancySection = gsap.timeline({
+    scrollTrigger: {
+        trigger: "#garancySection",
+        start: 'top 60%',
+        end: '60% 70%',
+        scrub: 2,
+        // markers: true
+    }
+});
+
+tlGarancySection
+    .from("#garancyTitle", { x: '200%' })
+    .from("#garancySubtitle", { x: '200%' }, ">")
+
+gsap.from("[data-garancy-card]", {
+    scrollTrigger: {
+        trigger: "#garancySection",
+        start: '70% bottom',
+        end: '75% 80%',
+        scrub: 2,
+        // markers: true
+    },
+        y: "100%",
+        opacity: 0,
+        stagger: 0.6,
+        scrub: 0.5
+    })
+
 gsap.from("#rockIcon", {
     scrollTrigger: {
         trigger: "#rockIcon",
