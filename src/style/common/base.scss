@@ -88,3 +88,10 @@ a {
     text-decoration: none;
     color: inherit;
 }
+
+.preload * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+}

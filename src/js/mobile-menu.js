@@ -1,76 +1,51 @@
-import { gsap } from "gsap";
+const header = document.querySelector("#header");
+const burger = document.querySelector("#burger");
+const menu = document.querySelector("#menu");
 
-const tl = gsap.timeline({ paused: true });
-
-const headerElement = document.querySelector("#header");
-const menu = headerElement.querySelector("#menu");
-const burger = headerElement.querySelector("#burger");
+let isMenuOpen = false;
 
 const isMobile = () => window.matchMedia("(max-width: 1250px)").matches;
 
-tl.fromTo(menu, 
-    { autoAlpha: 0 },
-    { autoAlpha: 1, duration: 0.2, ease: "power1.out" }
-)
-.from("[data-anchor]", {
-    duration: 0.3,
-    y: 200,
-    opacity: 0,
-    stagger: 0.05,
-    ease: "power2.out"
-}, "<");
-
-if (!isMobile()) {
-    gsap.set("[data-anchor]", { clearProps: "all" });
-    gsap.set(menu, { clearProps: "all" });
-}
-
-const closeMenuWithAnimation = () => {
-    burger.classList.remove("open");
-
-    tl.reverse();
-
-    tl.eventCallback("onReverseComplete", () => {
-        menu.classList.remove("open");
-        tl.eventCallback("onReverseComplete", null);
-    });
+const openMenu = () => {
+  burger.classList.add("open");
+  menu.classList.add("open");
+  isMenuOpen = true;
 };
 
-const forceCloseMenu = () => {
-    burger.classList.remove("open");
-    menu.classList.remove("open");
-    tl.pause(0);
-    gsap.set("[data-anchor]", { clearProps: "all" });
-    gsap.set(menu, { clearProps: "all" });
+const closeMenu = () => {
+  burger.classList.remove("open");
+  menu.classList.remove("open");
+  isMenuOpen = false;
 };
 
-const toggleMenu = (e) => {
-    if (!isMobile()) return;
-
-    const isBurger = e.target.closest("#burger");
-    const isAnchor = e.target.closest("[data-anchor]");
-
-    if (isBurger) {
-        const isOpen = menu.classList.contains("open");
-
-        if (isOpen) {
-            closeMenuWithAnimation();
-        } else {
-            burger.classList.add("open");
-            menu.classList.add("open");
-            tl.play();
-        }
-    }
-
-    if (isAnchor) {
-        closeMenuWithAnimation();
-    }
+const toggleMenu = () => {
+  if (isMenuOpen) {
+    closeMenu();
+  } else {
+    openMenu();
+  }
 };
 
-headerElement.addEventListener("click", toggleMenu);
+const handleHeaderClick = (e) => {
+  if (!isMobile()) return;
 
-window.addEventListener("resize", () => {
-    if (!isMobile()) {
-        forceCloseMenu();
-    }
-});
+  const clickedBurger = e.target.closest("#burger");
+  const clickedAnchor = e.target.closest("[data-anchor]");
+
+  if (clickedBurger) {
+    toggleMenu();
+  }
+
+  if (clickedAnchor) {
+    closeMenu();
+  }
+};
+
+const handleResize = () => {
+  if (!isMobile() && isMenuOpen) {
+    closeMenu();
+  }
+};
+
+header.addEventListener("click", handleHeaderClick);
+window.addEventListener("resize", handleResize);
