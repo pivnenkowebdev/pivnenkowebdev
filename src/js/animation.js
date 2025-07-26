@@ -3,7 +3,66 @@ import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(SplitText);
-gsap.registerPlugin(ScrollTrigger) 
+gsap.registerPlugin(ScrollTrigger)
+
+document.fonts.ready.then(() => {
+    const tlHero = gsap.timeline();
+
+    const mainTitleSplit = new SplitText("#mainTitle", {
+        type: "chars",
+    });
+    
+    const subtitleSplit = new SplitText("#heroSubtitle", {
+        type: "words",
+    });
+    
+    const listSplit = new SplitText("#heroList", {
+        type: "lines",
+    });
+
+    tlHero.from(mainTitleSplit.chars, {
+        x: -100,
+        opacity: 0,
+        stagger: 0.05,
+        duration: 0.6,
+        ease: "power2.out",
+        onComplete: () => {
+            mainTitleSplit.revert();
+        }
+    })
+    .addLabel("afterTitle")
+    .from(subtitleSplit.words, {
+        x: -100,
+        opacity: 0,
+        stagger: 0.1,
+        duration: 0.5,
+        ease: "power2.out",
+        onComplete: () => {
+            subtitleSplit.revert();
+        }
+    }, "afterTitle")
+    .addLabel("afterSubtitle")
+    .from(listSplit.lines, {
+        x: -100,
+        opacity: 0,
+        stagger: 0.1,
+        duration: 0.5,
+        ease: "power2.out",
+        onComplete: () => {
+            listSplit.revert();
+        }
+    }, "afterSubtitle")
+    .addLabel("afterList")
+    .from("#heroLink", {
+        opacity: 0,
+        stagger: {
+            amount: 0.5,
+            from: "random",
+        },
+        duration: 0.8,
+        ease: "power2.out"
+    }, "afterList")
+})
 
 const tlAboutSection = gsap.timeline({
     scrollTrigger: {
@@ -99,61 +158,23 @@ gsap.from("#fireIcon", {
     duration: 1
 });
 
-document.fonts.ready.then(() => {
-    const tlHero = gsap.timeline();
+const tlProgrammsSection = gsap.timeline({
+    scrollTrigger: {
+        trigger: "#programmsSection",
+        start: '40% 40%',
+        end: '60% bottom',
+        // scrub: 2,
+        markers: true,
+        toggleActions: "play none reverse none",
+    },
+});
 
-    const mainTitleSplit = new SplitText("#mainTitle", {
-        type: "chars",
-    });
-    
-    const subtitleSplit = new SplitText("#heroSubtitle", {
-        type: "words",
-    });
-    
-    const listSplit = new SplitText("#heroList", {
-        type: "lines",
-    });
-
-    tlHero.from(mainTitleSplit.chars, {
-        x: -100,
-        opacity: 0,
-        stagger: 0.05,
-        duration: 0.6,
-        ease: "power2.out",
-        onComplete: () => {
-            mainTitleSplit.revert();
-        }
-    })
-    .addLabel("afterTitle")
-    .from(subtitleSplit.words, {
-        x: -100,
-        opacity: 0,
-        stagger: 0.1,
-        duration: 0.5,
-        ease: "power2.out",
-        onComplete: () => {
-            subtitleSplit.revert();
-        }
-    }, "afterTitle")
-    .addLabel("afterSubtitle")
-    .from(listSplit.lines, {
-        x: -100,
-        opacity: 0,
-        stagger: 0.1,
-        duration: 0.5,
-        ease: "power2.out",
-        onComplete: () => {
-            listSplit.revert();
-        }
-    }, "afterSubtitle")
-    .addLabel("afterList")
-    .from("#heroLink", {
-        opacity: 0,
-        stagger: {
-            amount: 0.5,
-            from: "random",
-        },
-        duration: 0.8,
-        ease: "power2.out"
-    }, "afterList")
+tlProgrammsSection.to("#programmsSection", {
+    backgroundColor: '#000814',
+    color: '#fff',
+    duration: 0.5,
 })
+.to("#header", {
+    backgroundColor: "transparent",
+    // duration: 0.5
+}, "<")
