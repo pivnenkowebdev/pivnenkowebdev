@@ -14,29 +14,91 @@
         @media (max-width: 1250px) {
             min-height: 100dvh;
         }
+
+        .section-title {
+        
+        }
+        
+        .main-subtitle {
+            margin-bottom: 60px;
+        }
+
+        .lead-link {
+            align-self: center;
+            &::before, &::after {
+                border-color: $white;
+            }
+        }
+
+        .programms-list {
+            margin-bottom: 40px;
+        }
     }
 }
 
-.section-title {
-
-}
-
-.main-subtitle {
-
-}
 
 .main-subtitle__marker {
 
 }
 
 .programms-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
     &__item {
 
     }
 }
 
 .card-programm {
-    &__title {
+    color: $black;
+    padding: 16px;border-radius:  16px;
+    background-color: $white;
+    height: 100%;
 
+    &__header {
+        margin-bottom: 40px;
+    }
+
+    &__title {
+        margin-bottom: 8px;
+        font-size: 24px;
+        font-weight: 800;
+    }
+
+    &__wrapper-info {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    &__description {
+        font-size: 18px;
+        font-weight: 600;
+        color: $blue;
+    }
+
+    &__condition {
+        color: $black;
+        font-size: 18px;
+        font-weight: 500;
+        flex-shrink: 0;
+    }
+
+    .list-of-advantages {
+        gap: 10px;
+    }
+
+    .list-of-advantages__item {
+
+    }
+
+    .list-of-advantages__marker {
+        font-size: 18px;
+    }
+
+    .list-of-advantages__text {
+        font-size: 18px;
+        font-weight: 500;
     }
 }

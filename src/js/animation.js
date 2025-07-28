@@ -81,8 +81,8 @@ tlAboutSection
 const tlGarancySection = gsap.timeline({
     scrollTrigger: {
         trigger: "#garancySection",
-        start: 'top 70%',
-        end: '60% 70%',
+        start: 'top 80%',
+        end: '60% 90%',
         scrub: 2,
         // markers: true
     }
@@ -96,7 +96,7 @@ gsap.from("[data-garancy-card]", {
     scrollTrigger: {
         trigger: "#garancySection",
         start: '70% bottom',
-        end: '75% 80%',
+        end: '80% 95%',
         scrub: 2,
         // markers: true
     },
@@ -104,7 +104,21 @@ gsap.from("[data-garancy-card]", {
         opacity: 0,
         stagger: 0.6,
         scrub: 1
-    })
+})
+
+gsap.from("#garancyLink", {
+scrollTrigger: {
+        trigger: "#garancySection",
+        start: '70% 80%',
+        end: 'top 90%',
+        scrub: 2,
+        markers: true
+    },
+        y: "100%",
+        opacity: 0,
+        stagger: 0.6,
+        scrub: 1
+})
 
 gsap.from("#rockIcon", {
     scrollTrigger: {
@@ -164,7 +178,7 @@ const tlProgrammsSection = gsap.timeline({
         start: '40% 40%',
         end: '60% bottom',
         // scrub: 2,
-        markers: true,
+        // markers: true,
         toggleActions: "play none reverse none",
     },
 });
