@@ -103,7 +103,8 @@ gsap.from("[data-garancy-card]", {
         y: "100%",
         opacity: 0,
         stagger: 0.6,
-        scrub: 1
+        scrub: 1,
+        duration: 1
 })
 
 gsap.from("#garancyLink", {
@@ -112,7 +113,7 @@ scrollTrigger: {
         start: '70% 80%',
         end: 'top 90%',
         scrub: 2,
-        markers: true
+        // markers: true
     },
         y: "100%",
         opacity: 0,
@@ -175,15 +176,15 @@ gsap.from("#fireIcon", {
 const tlProgrammsSection = gsap.timeline({
     scrollTrigger: {
         trigger: "#programmsSection",
-        start: '40% 40%',
+        start: '40% 80%',
         end: '60% bottom',
-        // scrub: 2,
+        scrub: 2,
         // markers: true,
         toggleActions: "play none reverse none",
     },
 });
 
-tlProgrammsSection.to("#programmsSection", {
+tlProgrammsSection.to("body", {
     backgroundColor: '#000814',
     color: '#fff',
     duration: 0.5,
@@ -192,3 +193,32 @@ tlProgrammsSection.to("#programmsSection", {
     backgroundColor: "transparent",
     // duration: 0.5
 }, "<")
+
+gsap.from("[data-programm]", {
+    scrollTrigger: {
+        trigger: "#programmsSection",
+        start: '70% 90%',
+        end: '60% 70%',
+        scrub: 2,
+        // markers: true
+    },
+        y: "100%",
+        opacity: 0,
+        stagger: 0.6,
+        scrub: 1,
+        duration: 1
+})
+
+gsap.from("#programmLink", {
+scrollTrigger: {
+        trigger: "#programmLink",
+        start: '70% bottom',
+        end: 'top 90%',
+        scrub: 2,
+        markers: true
+    },
+        y: "100%",
+        opacity: 0,
+        stagger: 0.6,
+        scrub: 1
+})

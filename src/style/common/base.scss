@@ -48,7 +48,7 @@ main {
     height: 100%;
     min-height: 100dvh;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
         padding: 0 20px;
     }
 }
