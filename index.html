@@ -5,8 +5,8 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Пивненко | WebDev</title>
-    <script type="module" crossorigin src="/pivnenkowebdev/assets/index-D1uKUvTw.js"></script>
-    <link rel="stylesheet" crossorigin href="/pivnenkowebdev/assets/index-VoS0dnWz.css">
+    <script type="module" crossorigin src="/pivnenkowebdev/assets/index-BPpucteh.js"></script>
+    <link rel="stylesheet" crossorigin href="/pivnenkowebdev/assets/index-BVcM9jzq.css">
   </head>
   <body>
     <header class="header" id="header">
@@ -15,20 +15,20 @@
           <a href="" class="logo">
             <img src="/pivnenkowebdev/assets/logo-B-e9kGLa.svg" alt="" class="logo__pic">
           </a>
-          <!-- <nav class="menu" id="menu">
-            <ul class="menu__list">
+          <nav class="menu" id="menu">
+            <ul class="menu__list" id="menuList">
               <li class="menu__item">
-                <a class="anchor-link" data-anchor>
+                <a class="anchor-link" data-anchor href="#aboutMeSection">
                   О преподавателе
                 </a>
               </li>
               <li class="menu__item">
-                <a class="anchor-link" data-anchor>
+                <a class="anchor-link" data-anchor href="#garancySection">
                   Гарантии и подход
                 </a>
               </li>
               <li class="menu__item menu__item--drop">
-                <a class="anchor-link" data-anchor>
+                <a class="anchor-link" data-anchor href="#programmsSection">
                   Программы
                 </a>
               </li>
@@ -48,7 +48,7 @@
                 </a>
               </li>
             </ul>
-          </nav> -->
+          </nav>
           <button class="burger" id="burger">
             <span class="burger__line"></span>
           </button>
@@ -126,8 +126,149 @@
           </div>
         </div>
       </section>
-      <section class="test-section third"></section>
-      <section class="test-section fourth"></section>
+      <section class="garancy" id="garancySection">
+        <div class="container">
+          <div class="garancy__content">
+            <h3 class="section-title" id="garancyTitle">Гарантии и подход</h3>
+            <h2 class="main-subtitle" id="garancySubtitle">
+              <span class="main-subtitle__marker" aria-hidden="true">*</span>
+              <span>Обучаю на реальных проектах и даю востребованные навыки с нуля.</span>
+            </h2>
+            <ul class="garancy-list" id="#garancyList">
+              <li class="garancy-list__item" data-garancy-card>
+                <article class="garancy-card">
+                  <div class="garancy-card__top">
+                    <h6 class="garancy-card__title">Уроки без скуки</h6>
+                    <img class="garancy-card__icon" src="/pivnenkowebdev/images/rocket-icon.svg" alt="rocket icon">
+                  </div>
+                  <p class="garancy-card__description">Никаких занудных лекций. Каждое занятие — это проект, игра или вызов, в котором хочется разобраться.</p>
+                </article>
+              </li>
+              <li class="garancy-list__item" data-garancy-card>
+                <article class="garancy-card">
+                  <div class="garancy-card__top">
+                    <h6 class="garancy-card__title">Научу думать, а не просто повторять</h6>
+                    <img class="garancy-card__icon" src="/pivnenkowebdev/images/brain-icon.svg" alt="rocket icon">
+                  </div>
+                  <p class="garancy-card__description">Мои ученики понимают, почему код работает — а не просто копируют. Это залог крепкого фундамента настоящего развития.</p>
+                </article>
+              </li>
+              <li class="garancy-list__item" data-garancy-card>
+                <article class="garancy-card">
+                  <div class="garancy-card__top">
+                    <h6 class="garancy-card__title">Подход для каждого</h6>
+                    <img class="garancy-card__icon" src="/pivnenkowebdev/images/puzzle-icon.svg" alt="rocket icon">
+                  </div>
+                  <p class="garancy-card__description">Кто-то любит делать сайты, кто-то — писать скрипты на Python. Я подстраиваюсь под интересы, а не заставляю всех идти в одном темпе.</p>
+                </article>
+              </li>
+              <li class="garancy-list__item" data-garancy-card>
+                <article class="garancy-card">
+                  <div class="garancy-card__top">
+                    <h6 class="garancy-card__title">Родители всегда в курсе</h6>
+                    <img class="garancy-card__icon" src="/pivnenkowebdev/assets/statisctics-icon-D9Hv6I5r.svg" alt="rocket icon">
+                  </div>
+                  <p class="garancy-card__description">Регулярно рассказываю, что ученик изучает, какие успехи и над чем работает. Без общих фраз и "всё хорошо, поверьте".</p>
+                </article>
+              </li>
+            </ul>
+            <a href="" class="lead-link" id="garancyLink">
+                Узнать подробности
+            </a>
+          </div>
+        </div>
+      </section>
+      <section class="learning-programms" id="programmsSection">
+        <div class="container">
+          <div class="learning-programms__content">
+            <h3 class="section-title" id="programmTitle">Программы обучения</h3>
+            <h2 class="main-subtitle" id="programmSubtitle">
+              <span class="main-subtitle__marker" aria-hidden="true">*</span>
+              <span>Обучение, которое ведёт к результату</span>
+            </h2>
+            <ul class="programms-list">
+              <li class="programms-list__item" data-programm>
+                <article class="card-programm">
+                  <div class="card-programm__header">
+                    <h4 class="card-programm__title">Python</h4>
+                  <div class="card-programm__wrapper-info">
+                    <p class="card-programm__description">Простой старт, мощные возможности</p>
+                    <p class="card-programm__condition">от 10 лет</p>
+                  </div>
+                  </div>                  
+                  <ul class="list-of-advantages">
+                    <li class="list-of-advantages__item">
+                      <span class="list-of-advantages__marker">*</span>
+                      <span class="list-of-advantages__text">Универсальность без границ - один язык для всего</span>
+                    </li>
+                    <li class="list-of-advantages__item">
+                      <span class="list-of-advantages__marker">*</span>
+                      <span class="list-of-advantages__text">Открывает двери в мир искусственного интеллекта и автоматизации</span>
+                    </li>
+                    <li class="list-of-advantages__item">
+                      <span class="list-of-advantages__marker">*</span>
+                      <span class="list-of-advantages__text">Высокооплачиваемый навык</span>
+                    </li>
+                  </ul>
+                </article>
+              </li>
+              <li class="programms-list__item" data-programm>
+                <article class="card-programm">
+                  <div class="card-programm__header">
+                    <h4 class="card-programm__title">WEB-разработка</h4>
+                    <div class="card-programm__wrapper-info">
+                      <p class="card-programm__description">От первого сайта до успешной карьеры в IT</p>
+                      <p class="card-programm__condition">от 12 лет</p>
+                    </div>
+                  </div>
+                  <ul class="list-of-advantages">
+                    <li class="list-of-advantages__item">
+                      <span class="list-of-advantages__marker">*</span>
+                      <span class="list-of-advantages__text">Реальный результат с первого дня</span>
+                    </li>
+                    <li class="list-of-advantages__item">
+                      <span class="list-of-advantages__marker">*</span>
+                      <span class="list-of-advantages__text">Универсальные навыки для любой IT профессии</span>
+                    </li>
+                    <li class="list-of-advantages__item">
+                      <span class="list-of-advantages__marker">*</span>
+                      <span class="list-of-advantages__text">Быстрый путь к первым деньгам</span>
+                    </li>
+                </ul>
+                </article>
+              </li>
+              <li class="programms-list__item" data-programm>
+                <article class="card-programm">
+                  <div class="card-programm__header">
+                    <h4 class="card-programm__title">Scratch</h4>
+                    <div class="card-programm__wrapper-info">
+                      <p class="card-programm__description">Первые шаги в IT для самых маленьких</p>
+                      <p class="card-programm__condition">от 7 лет</p>
+                    </div>
+                  </div>
+                  <ul class="list-of-advantages">
+                    <li class="list-of-advantages__item">
+                      <span class="list-of-advantages__marker">*</span>
+                      <span class="list-of-advantages__text">Развивает алгоритмическое мышление без кода</span>
+                    </li>
+                    <li class="list-of-advantages__item">
+                      <span class="list-of-advantages__marker">*</span>
+                      <span class="list-of-advantages__text">Безопасная среда обучения - никакого стресса, только творчество</span>
+                    </li>
+                    <li class="list-of-advantages__item">
+                      <span class="list-of-advantages__marker">*</span>
+                      <span class="list-of-advantages__text">Закладывает фундамент успешного будущего</span>
+                    </li>
+                </ul>
+              </article>
+            </li>
+          </ul>
+          <a href="" class="lead-link" id="programmLink">
+            Выбрать направление
+          </a>
+          </div>
+        </div>
+      </section>
     </main>
   </body>
 </html>
