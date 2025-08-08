@@ -2,223 +2,276 @@ import { gsap } from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(SplitText);
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(SplitText, ScrollTrigger);
 
+// ===== HERO SECTION =====
 document.fonts.ready.then(() => {
     const tlHero = gsap.timeline();
+    const list = new SplitText("#heroList", { type: "lines" });
 
-    const mainTitleSplit = new SplitText("#mainTitle", {
-        type: "chars",
-    });
-    
-    const subtitleSplit = new SplitText("#heroSubtitle", {
-        type: "words",
-    });
-    
-    const listSplit = new SplitText("#heroList", {
-        type: "lines",
-    });
+    tlHero
+        .from("#mainTitle", {
+            x: -100,
+            opacity: 0,
+            stagger: 0.05,
+            duration: 0.6,
+            ease: "power2.out",
+        })
+        .from("#heroSubtitle", {
+            x: -100,
+            opacity: 0,
+            stagger: 0.1,
+            duration: 0.5,
+            ease: "power2.out",
+        })
+        .from(list.lines, {
+            x: -100,
+            opacity: 0,
+            stagger: 0.1,
+            duration: 0.5,
+            ease: "power2.out",
+        })
+        .from("#heroLink", {
+            opacity: 0,
+            stagger: { amount: 0.5, from: "random" },
+            duration: 0.8,
+            ease: "power2.out",
+        });
+});
 
-    tlHero.from(mainTitleSplit.chars, {
-        x: -100,
-        opacity: 0,
-        stagger: 0.05,
-        duration: 0.6,
-        ease: "power2.out",
-        onComplete: () => {
-            mainTitleSplit.revert();
-        }
-    })
-    .addLabel("afterTitle")
-    .from(subtitleSplit.words, {
-        x: -100,
-        opacity: 0,
-        stagger: 0.1,
-        duration: 0.5,
-        ease: "power2.out",
-        onComplete: () => {
-            subtitleSplit.revert();
-        }
-    }, "afterTitle")
-    .addLabel("afterSubtitle")
-    .from(listSplit.lines, {
-        x: -100,
-        opacity: 0,
-        stagger: 0.1,
-        duration: 0.5,
-        ease: "power2.out",
-        onComplete: () => {
-            listSplit.revert();
-        }
-    }, "afterSubtitle")
-    .addLabel("afterList")
-    .from("#heroLink", {
-        opacity: 0,
-        stagger: {
-            amount: 0.5,
-            from: "random",
-        },
-        duration: 0.8,
-        ease: "power2.out"
-    }, "afterList")
-})
-
-const tlAboutSection = gsap.timeline({
+// ===== ABOUT SECTION =====
+gsap.timeline({
     scrollTrigger: {
         trigger: "#aboutMeSection",
         start: 'top 60%',
         end: '60% 70%',
         scrub: 2,
-    }
-});
-
-tlAboutSection
+    },
+})
     .from("#aboutMeTitle", { x: '200%' })
     .from("#aboutMeSubtitle", { x: '200%' }, ">")
     .from("#listAbout", { x: '200%' }, ">");
 
-const tlGarancySection = gsap.timeline({
-    scrollTrigger: {
-        trigger: "#garancySection",
-        start: 'top 80%',
-        end: '60% 90%',
-        scrub: 2,
-        // markers: true
-    }
-});
+// ===== GARANCY SECTION - MOBILE =====
+const mm = gsap.matchMedia();
 
-tlGarancySection
-    .from("#garancyTitle", { x: '200%' })
-    .from("#garancySubtitle", { x: '200%' }, ">")
+mm.add({
+    isMobile: "(max-width: 768px)",
+}, () => {
 
-gsap.from("[data-garancy-card]", {
-    scrollTrigger: {
-        trigger: "#garancySection",
-        start: '70% bottom',
-        end: '80% 95%',
-        scrub: 2,
-        // markers: true
-    },
+    // Фон и заголовки
+    gsap.timeline({
+        scrollTrigger: {
+            trigger: "#garancySection",
+            start: "top 80%",
+            end: "60% 90%",
+            scrub: 2,
+        },
+    })
+    .from("#garancyTitle", { x: '150%' })
+    .from("#garancySubtitle", { x: '150%' }, ">");
+
+    // Карточки
+    gsap.from("[data-garancy-card]", {
+        scrollTrigger: {
+            trigger: "#garancySection",
+            start: "top 50%",
+            end: "60% 70%",
+            scrub: 2,
+        },
         y: "100%",
         opacity: 0,
         stagger: 0.6,
-        scrub: 1,
-        duration: 1
-})
+        duration: 1,
+    });
 
-gsap.from("#garancyLink", {
-scrollTrigger: {
-        trigger: "#garancySection",
-        start: '70% 80%',
-        end: 'top 90%',
-        scrub: 2,
-        // markers: true
-    },
+    // Ссылка
+    gsap.from("#garancyLink", {
+        scrollTrigger: {
+            trigger: "#garancySection",
+            start: "40% 50%",
+            end: "60% 70%",
+            scrub: 2,
+        },
         y: "100%",
         opacity: 0,
         stagger: 0.6,
-        scrub: 1
-})
-
-gsap.from("#rockIcon", {
-    scrollTrigger: {
-        trigger: "#rockIcon",
-        start: "top 80%",
-        end: "bottom bottom",
-        toggleActions: "play none reverse none",
-    },
-    scale: 0,
-    opacity: 0,
-    ease: "bounce.inOut",
-    duration: 1,
+    });
 });
 
-gsap.from("#manIcon", {
-    scrollTrigger: {
-        trigger: "#aboutMeSubtitle",
-        start: "top 70%",
-        end: "bottom bottom",
-        toggleActions: "play none reverse none",
-    },
-    scale: 0,
-    opacity: 0,
-    ease: "bounce.inOut",
-    duration: 1,
-});
+// DESKTOP
+mm.add("(min-width: 769px)", () => {
 
-gsap.from("#womanIcon", {
-    scrollTrigger: {
-        trigger: "#listAbout",
-        start: "top 60%",
-        end: "bottom bottom",
-        toggleActions: "play none reverse none",
-    },
-    scale: 0,
-    opacity: 0,
-    ease: "bounce.inOut",
-    duration: 1
-});
+    gsap.timeline({
+        scrollTrigger: {
+            trigger: "#garancySection",
+            start: "top bottom",
+            end: "50% 70%",
+            scrub: 2,
+        },
+    })
+    .from("#garancyTitle", { x: '150%' })
+    .from("#garancySubtitle", { x: '150%' }, ">");
 
-gsap.from("#fireIcon", {
-    scrollTrigger: {
-        trigger: "#listAbout",
-        start: "top 60%",
-        end: "bottom bottom",
-        toggleActions: "play none reverse none",
-    },
-    scale: 0,
-    opacity: 0,
-    ease: "bounce.inOut",
-    duration: 1
-});
-
-const tlProgrammsSection = gsap.timeline({
-    scrollTrigger: {
-        trigger: "#programmsSection",
-        start: '40% 80%',
-        end: '60% bottom',
-        scrub: 2,
-        // markers: true,
-        toggleActions: "play none reverse none",
-    },
-});
-
-tlProgrammsSection.to("body", {
-    backgroundColor: '#000814',
-    color: '#fff',
-    duration: 0.5,
-})
-.to("#header", {
-    backgroundColor: "transparent",
-    // duration: 0.5
-}, "<")
-
-gsap.from("[data-programm]", {
-    scrollTrigger: {
-        trigger: "#programmsSection",
-        start: '70% 90%',
-        end: '60% 70%',
-        scrub: 2,
-        // markers: true
-    },
+    gsap.from("[data-garancy-card]", {
+        scrollTrigger: {
+            trigger: "#garancySection",
+            start: "top 70%",
+            end: "60% 60%",
+            scrub: 2,
+        },
         y: "100%",
         opacity: 0,
         stagger: 0.6,
-        scrub: 1,
-        duration: 1
-})
+        duration: 1,
+    });
 
-gsap.from("#programmLink", {
-scrollTrigger: {
-        trigger: "#programmLink",
-        start: '70% bottom',
-        end: 'top 90%',
-        scrub: 2,
-        markers: true
-    },
+    gsap.from("#garancyLink", {
+        scrollTrigger: {
+            trigger: "#garancySection",
+            start: "top 95%",
+            end: "bottom 90%",
+            scrub: 2,
+        },
         y: "100%",
         opacity: 0,
         stagger: 0.6,
-        scrub: 1
-})
+    });
+});
+
+// ===== ICONS =====
+const iconAnimations = [
+    { id: "#rockIcon", trigger: "#rockIcon", start: "top 80%" },
+    { id: "#manIcon", trigger: "#aboutMeSubtitle", start: "top 70%" },
+    { id: "#womanIcon", trigger: "#listAbout", start: "top 60%" },
+    { id: "#fireIcon", trigger: "#listAbout", start: "top 60%" },
+];
+
+iconAnimations.forEach(({ id, trigger, start }) => {
+    gsap.from(id, {
+        scrollTrigger: {
+            trigger,
+            start,
+            end: "bottom bottom",
+            toggleActions: "play none reverse none",
+        },
+        scale: 0,
+        opacity: 0,
+        ease: "bounce.inOut",
+        duration: 1,
+    });
+});
+
+// ===== PROGRAMMS SECTION — MOBILE =====
+mm.add({
+    isMobile: "(max-width: 768px)",
+}, () => {
+
+    gsap.timeline({
+        scrollTrigger: {
+            trigger: "#programmsSection",
+            start: "top 80%",
+            end: "60% 90%",
+            scrub: 2,
+        },
+    })
+    .to("body", {
+        backgroundColor: '#000814',
+        color: '#fff',
+        duration: 0.5,
+    })
+    .to("#header", {
+        backgroundColor: "transparent",
+        duration: 0.5,
+    }, "<")
+    .from("#programmTitle", { x: '150%' })
+    .from("#programmSubtitle", { x: '150%' }, ">");
+
+    // Карточки
+    gsap.from("[data-programm]", {
+        scrollTrigger: {
+            trigger: "#programmsSection",
+            start: "top 50%",
+            end: "60% 70%",
+            scrub: 2,
+        },
+        y: "100%",
+        opacity: 0,
+        stagger: 0.6,
+        duration: 1,
+    });
+
+    gsap.from("#programmLink", {
+        scrollTrigger: {
+            trigger: "#programmsSection",
+            start: "40% 50%",
+            end: "60% 70%",
+            scrub: 2,
+        },
+        y: "100%",
+        opacity: 0,
+        stagger: 0.6,
+    });
+});
+
+// ===== PROGRAMMS SECTION — DESKTOP =====
+mm.add("(min-width: 769px)", () => {
+
+    gsap.timeline({
+        scrollTrigger: {
+            trigger: "#programmsSection",
+            start: "top 90%",
+            end: "50% 70%",
+            scrub: 2,
+        },
+    })
+    .to("body", {
+        backgroundColor: '#000814',
+        color: '#fff',
+        duration: 0.5,
+    })
+    .to("#header", {
+        backgroundColor: "transparent",
+        duration: 0.5,
+    }, "<")
+    .from("#programmTitle", { x: '150%' })
+    .from("#programmSubtitle", { x: '150%' }, ">");
+    
+    gsap.from("[data-programm]", {
+        scrollTrigger: {
+            trigger: "#programmsSection",
+            start: "top 70%",
+            end: "60% 60%",
+            scrub: 2,
+        },
+        y: "100%",
+        opacity: 0,
+        stagger: 0.6,
+        duration: 1,
+    });
+
+    gsap.from("#programmLink", {
+        scrollTrigger: {
+            trigger: "#programmsSection",
+            start: "top 95%",
+            end: "bottom 90%",
+            scrub: 2,
+        },
+        y: "100%",
+        opacity: 0,
+        stagger: 0.6,
+    });
+});
+
+// MOBILE MENU BG 
+mm.add("(max-width: 1300px)", () => {
+    gsap.to("#menuList", {
+        backgroundColor: "#000814",
+        duration: 0.5,
+        scrollTrigger: {
+            trigger: "#programmsSection",
+            start: "top center",
+            toggleActions: "play none none reverse"
+        }
+    });
+});
