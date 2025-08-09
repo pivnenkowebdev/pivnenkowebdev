@@ -1,0 +1,20 @@
+@use "../common/vars.scss" as *;
+
+.accordeon {
+    list-style: none;
+    border: 1px solid #ccc;
+    max-width: 800px;
+
+    .accordeon__header {
+        width: 100%;
+        background: #f5f5f5;
+        cursor: pointer;
+        text-align: left;
+    }
+
+    .accordeon__body {
+        height: 0;
+        overflow: hidden;
+        transition: height 0.3s ease;
+    }
+}

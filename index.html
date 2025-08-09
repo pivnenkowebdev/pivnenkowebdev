@@ -97,10 +97,18 @@
       <section class="about-me" id="aboutMeSection">
         <div class="container">
           <div class="about-me__content">
-            <img class="about-me__icon about-me__icon--rock" id="rockIcon" src="/images/koza.svg" alt="рок-энд-ролл иконка">
-            <img class="about-me__icon about-me__icon--woman" id="womanIcon" src="/images/woman-mac.svg" alt="девушка с ноутбуком иконка">
-            <img class="about-me__icon about-me__icon--man" id="manIcon" src="/images/man-mac.svg" alt="мужчина с ноутбуком иконка">
-            <img class="about-me__icon about-me__icon--fire" id="fireIcon" src="/images/fire.svg" alt="огонь иконка">
+            <div class="about-me__wrapper-img about-me__wrapper-img--rock">
+              <img class="about-me__icon" id="rockIcon" src="/images/koza.svg" alt="рок-энд-ролл иконка">
+            </div>
+            <div class="about-me__wrapper-img about-me__wrapper-img--woman">
+              <img class="about-me__icon" id="womanIcon" src="/images/woman-mac.svg" alt="девушка с ноутбуком иконка">
+            </div>
+            <div class="about-me__wrapper-img about-me__wrapper-img--man">
+              <img class="about-me__icon" id="manIcon" src="/images/man-mac.svg" alt="мужчина с ноутбуком иконка">
+            </div>
+            <div class="about-me__wrapper-img about-me__wrapper-img--fire">
+              <img class="about-me__icon" id="fireIcon" src="/images/fire.svg" alt="огонь иконка">
+            </div>
             <h3 class="section-title" id="aboutMeTitle">Обо мне</h3>
             <h2 class="main-subtitle" id="aboutMeSubtitle">
               <span class="main-subtitle__marker" aria-hidden="true">*</span>
@@ -265,6 +273,107 @@
           <a href="" class="lead-link" id="programmLink">
             Выбрать направление
           </a>
+          </div>
+        </div>
+      </section>
+      <section class="faq">
+        <div class="container">
+          <div class="faq__content">
+            <h3 class="section-title" id="programmTitle">FAQ</h3>
+            <h2 class="main-subtitle" id="programmSubtitle">
+              <span class="main-subtitle__marker" aria-hidden="true">*</span>
+              <span>Всё, что хотят знать родители</span>
+            </h2>
+            <ul class="accordeon" id="accordeon">
+              <li class="accordeon__item" data-accordeon-item>
+                <button class="accordeon__header" data-accordeon-header>
+                  Что такое бесплатное пробное занятие?
+                </button>
+                <div class="accordeon__body" data-accordeon-body>
+                  <p class="accordeon__description">
+                    За 50 минут бесплатного пробного занятия ваш ребенок попробует себя в роли начинающего разработчика. Мы создадим на выбор: свою собственную web-страницу, ларёк по продаже пирожков на Python или самую первую игру на Scratch!
+                  </p>
+                  <p class="accordeon__description">
+                    Мы создадим свою собственную web-страницу, ларёк по продаже пирожков на Python или самую первую игру на Scratch!
+                  </p>
+                </div>
+              </li>
+              <li class="accordeon__item" data-accordeon-item>
+                <button class="accordeon__header" data-accordeon-header>
+                  Как следить за прогрессом обучения?
+                </button>
+                <div class="accordeon__body" data-accordeon-body>
+                  <p>
+                    Раз в месяц или по запросу родителей я отправляю отчёт о прогрессе обучения по любому удобному каналу связи.
+                  </p>
+                  <p>
+                    В отчёте я подробно расскажу, чему ребенок научился за время занятий, что получается хорошо, а чему нужно уделить больше внимания.Так же обсудим планы на ближайшие занятия.
+                  </p>
+                </div>
+              </li>
+              <li class="accordeon__item" data-accordeon-item>
+                <button class="accordeon__header" data-accordeon-header>
+                  А ребёнок не бросит занятия через месяц?
+                </button>
+                <div class="accordeon__body" data-accordeon-body>
+                  <p class="accordeon__description">
+                    Нет, не бросит. Я против скучных лекций на занятиях. Только реальные задачи и собственные решения.
+                  </p>
+                  <p class="accordeon__description">
+                    Все навыки ребёнок сразу закрепляет на практике и создаёт свои собственные проекты.
+                  </p>
+                </div>
+              </li>
+              <li class="accordeon__item" data-accordeon-item>
+                <button class="accordeon__header" data-accordeon-header>
+                  Как проходят занятия?
+                </button>
+                <div class="accordeon__body" data-accordeon-body>
+                  <p>
+                    Одно занятие длится 50 минут. Проводится онлайн с помощью видео-связи.
+                  </p>
+                  <p>
+                    Урок делится на три части: блок теории, самостоятельная работа и практика, обратная связь и ответы на вопросы.
+                  </p>
+                  <p>
+                    Подобный формат позволяет ребёнку как можно скорее перейти к практике и увидеть результат собственной работы в кратчайшие сроки.
+                  </p> 
+                </div>
+              </li>
+              <li class="accordeon__item" data-accordeon-item>
+                <button class="accordeon__header" data-accordeon-header>
+                  Что потребуется для занятий?
+                </button>
+                <div class="accordeon__body" data-accordeon-body>
+                  <p>
+                    Нужен компьютер или ноутбук с камерой и микрофоном, а так же хороший интернет - это всё. Необходимые для работы программы установим вместе.
+                  </p> 
+                </div>
+              </li>
+              <li class="accordeon__item" data-accordeon-item>
+                <button class="accordeon__header" data-accordeon-header>
+                  Какой график занятий?
+                </button>
+                <div class="accordeon__body" data-accordeon-body>
+                  <p>
+                    График занятий подбирается индивидуально для каждого ученика.
+                  </p> 
+                </div>
+              </li>
+              <li class="accordeon__item" data-accordeon-item>
+                <button class="accordeon__header" data-accordeon-header>
+                  А что кроме программирования получит ребёнок?
+                </button>
+                <div class="accordeon__body" data-accordeon-body>
+                  <p>
+                    В процессе обучения у ребёнка формируется логическое мышление, он осваивает системный подход к выполнению домашних заданий, учится планировать свои действия и спокойнее относиться к неудачам.
+                  </p> 
+                  <p>
+                    Приобретённые навыки станут основой для успешного освоения всех школьных дисциплин. Особенно прогресс будет заметен в изучени английского языка, т.к. все изучаемые в программировании технологии изначально создавались на английском языке. 
+                  </p>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
       </section>

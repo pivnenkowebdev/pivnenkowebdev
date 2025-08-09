@@ -59,17 +59,25 @@ mm.add({
     isMobile: "(max-width: 768px)",
 }, () => {
 
-    // Фон и заголовки
-    gsap.timeline({
+    gsap.from("#garancyTitle", {
         scrollTrigger: {
             trigger: "#garancySection",
-            start: "top 80%",
-            end: "60% 90%",
+            start: "top bottom",
+            end: "20% 80%",
             scrub: 2,
         },
-    })
-    .from("#garancyTitle", { x: '150%' })
-    .from("#garancySubtitle", { x: '150%' }, ">");
+        x: '150%'
+    });
+
+    gsap.from("#garancySubtitle", {
+        scrollTrigger: {
+            trigger: "#garancySection",
+            start: "top 90%",
+            end: "20% 70%",
+            scrub: 2,
+        },
+        x: '150%'
+    });
 
     // Карточки
     gsap.from("[data-garancy-card]", {
@@ -156,7 +164,6 @@ iconAnimations.forEach(({ id, trigger, start }) => {
             toggleActions: "play none reverse none",
         },
         scale: 0,
-        opacity: 0,
         ease: "bounce.inOut",
         duration: 1,
     });
@@ -181,11 +188,29 @@ mm.add({
         duration: 0.5,
     })
     .to("#header", {
-        backgroundColor: "transparent",
+        backgroundColor: "rgba(255, 255, 255, 0)",
         duration: 0.5,
     }, "<")
-    .from("#programmTitle", { x: '150%' })
-    .from("#programmSubtitle", { x: '150%' }, ">");
+
+    gsap.from("#programmTitle", {
+        scrollTrigger: {
+            trigger: "#programmsSection",
+            start: "top bottom",
+            end: "20% 70%",
+            scrub: 2,
+        },
+        x: '150%'
+    });
+
+    gsap.from("#programmSubtitle", {
+        scrollTrigger: {
+            trigger: "#programmsSection",
+            start: "top 60%",
+            end: "20% 70%",
+            scrub: 2,
+        },
+        x: '150%'
+    });
 
     // Карточки
     gsap.from("[data-programm]", {
@@ -231,7 +256,7 @@ mm.add("(min-width: 769px)", () => {
         duration: 0.5,
     })
     .to("#header", {
-        backgroundColor: "transparent",
+        backgroundColor: "rgba(255, 255, 255, 0)",
         duration: 0.5,
     }, "<")
     .from("#programmTitle", { x: '150%' })
